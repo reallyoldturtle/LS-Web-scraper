@@ -34,7 +34,6 @@ def main():
         page=page.content
         xmltree = html.fromstring(page)
         xpath_find,next_page_to_find=input[key]['xpath_test_query'],input[key]['xpath_button_to_click']
-        xpath_test_result = xmltree.xpath(xpath_find)
         #check validity
         if (xmltree.xpath(xpath_find) == input[key]['xpath_test_result']):
             print('Move to page',  (count + 1))
