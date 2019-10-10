@@ -6,6 +6,8 @@ from requests.auth import HTTPBasicAuth
 
 def getfile(filename):
     try:
+        
+        # for opening and reading the content from the file
         with open(filename) as f:
             input_data= json.load(f)
         f.close()
@@ -19,10 +21,12 @@ def main():
     INI_URL='https://yolaw-tokeep-hiring-env.herokuapp.com'
     USERNAME_AUTH = 'Thumb'
     PASSWORD_AUTH = 'Scraper'
+    
     if(len(sys.argv)!=2):
         print('Error!')
         print('Usage: python thumbs.py distortedjsonfilename')
-        exit()
+        sys.exit()   # updated the call to exit function
+        
     input_data=getfile(sys.argv[1])
     url = INI_URL
     key = next(iter(input_data))
@@ -53,5 +57,4 @@ def main():
 
 
 
-if __name__ == '__main__':
-    main()
+main()
